@@ -25,7 +25,7 @@ namespace client
                 {
                     new KeyValuePair<string, string>("client_id", "silicon"),
                     new KeyValuePair<string, string>("client_secret", "F621F470-9731-4A25-80EF-67A6F7C5F4B8"),
-                    new KeyValuePair<string, string>("scope", "api1 openid"),
+                    new KeyValuePair<string, string>("scope", "api1"),
                     new KeyValuePair<string, string>("grant_type", "client_credentials")
                 });
 

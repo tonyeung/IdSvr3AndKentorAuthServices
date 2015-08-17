@@ -20,7 +20,7 @@ namespace Auth
                     ClientId = "silicon",
                     Enabled = true,
                     AccessTokenType = AccessTokenType.Reference,
-
+                    AllowedScopes = new List<string> {"api1"},
                     Flow = Flows.ClientCredentials,
                     ClientSecrets = new List<Secret>
                     {
