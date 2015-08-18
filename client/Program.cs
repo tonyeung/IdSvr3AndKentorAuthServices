@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Diagnostics;
 
 namespace client
 {
@@ -12,10 +13,20 @@ namespace client
     {
         static void Main(string[] args)
         {
-            var response = GetClientToken();
-            CallApi(response);
+            //var response = GetClientToken();
+            //CallApi(response);
+            Authenticate();
             Console.ReadKey();
         }
+
+        static void Authenticate()
+        {
+            //var client = new HttpClient();
+            var url = "https://100.105.80.38:13855/connect/authorize?client_id=hybridclient&redirect_uri=https://100.105.80.38:13855/api/ExternalLoginCallback/&response_type=code id_token token&scope=openid profile read write offline_access&state=14395882522910.8145003772806376&nonce=1646515461546";
+            Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"https://100.105.80.38:13855/connect/authorize?client_id=hybridclient&redirect_uri=https://100.105.80.38:13855/api/ExternalLoginCallback/&response_type=code id_token token&scope=openid profile read write offline_access&state=14395882522910.8145003772806376&nonce=1646515461546\"");
+            //Console.WriteLine(client.GetStringAsync(url).Result);
+        }
+
 
         static TokenResponse GetClientToken()
         {
@@ -23,7 +34,6 @@ namespace client
                 "https://100.105.80.38:13855/connect/token",
                 "silicon",
                 "F621F470-9731-4A25-80EF-67A6F7C5F4B8");
-
             return client.RequestClientCredentialsAsync("api1").Result;
         }
         static void CallApi(TokenResponse response)

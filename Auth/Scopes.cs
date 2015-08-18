@@ -9,15 +9,30 @@ namespace Auth
 {
     static class Scopes
     {
-        public static List<Scope> Get()
+        public static IEnumerable<Scope> Get()
         {
-            return new List<Scope>
-            {
-                new Scope
+            return new[]
                 {
-                    Name = "api1"
-                }
-            };
+                    StandardScopes.OpenId,
+                    StandardScopes.Profile,
+                    StandardScopes.Email,
+                    StandardScopes.OfflineAccess,
+
+                    new Scope
+                    {
+                        Name = "read",
+                        DisplayName = "Read data",
+                        Type = ScopeType.Resource,
+                        Emphasize = false,
+                    },
+                    new Scope
+                    {
+                        Name = "write",
+                        DisplayName = "Write data",
+                        Type = ScopeType.Resource,
+                        Emphasize = true,
+                    }
+                };
         }
     }
 }

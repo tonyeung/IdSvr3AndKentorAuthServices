@@ -41,7 +41,32 @@ namespace Auth
                     {
                         new Secret("21B5F798-BE55-42BC-8AA8-0025B903DC3B".Sha256())
                     }
+                },
+
+                new Client
+                {
+                    ClientName = "Hybrid Client Demo",
+                    Enabled = true,
+                    ClientId = "hybridclient",
+                    Flow = Flows.Hybrid,
+
+                    RequireConsent = false,
+                    AccessTokenType = AccessTokenType.Reference,
+                    
+                    AllowAccessToAllScopes = true,
+                    AllowedCorsOrigins = new List<string>{"http://stubidp.kentor.se"},
+                    
+                    RedirectUris = new List<string>
+                    {
+                        "https://100.105.80.38:13855/api/ExternalLoginCallback/",
+                    },
+
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "https://100.105.80.38:13855/hearbeat/"
+                    }
                 }
+
             };
         }
     }
