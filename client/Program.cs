@@ -12,19 +12,25 @@ namespace client
     {
         static void Main(string[] args)
         {
-            var response = GetClientToken();
-            CallApi(response);
+
+            var foo = new IdentityModel.Client.AuthorizeRequest("https://100.105.80.38:13855/connect/authorize");
+            var bar = foo.CreateAuthorizeUrl("silicon", "code id_token token", "openid offline_access", "http://localhost:10084/test", "asdfadfasf", "asdfasdfsafd");
+            
+            //var response = GetClientToken();
+            //CallApi(response);
             Console.ReadKey();
         }
 
         static TokenResponse GetClientToken()
         {
+
+
             var client = new TokenClient(
                 "https://100.105.80.38:13855/connect/token",
                 "silicon",
                 "F621F470-9731-4A25-80EF-67A6F7C5F4B8");
 
-            return client.RequestClientCredentialsAsync("api1").Result;
+            return client.RequestClientCredentialsAsync("offline_access").Result;
         }
         static void CallApi(TokenResponse response)
         {

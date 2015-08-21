@@ -24,6 +24,10 @@ namespace Auth
             var options = new IdentityServerOptions
             {
                 Factory = factory,
+                AuthenticationOptions = new AuthenticationOptions()
+                {
+                    EnableLocalLogin = false
+                },
                 //AuthenticationOptions = new AuthenticationOptions()
                 //{
                 //    IdentityProviders = (appBuilder, signInAsType) =>

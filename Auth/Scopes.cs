@@ -15,7 +15,12 @@ namespace Auth
             {
                 new Scope
                 {
-                    Name = "api1"
+                    Name = "offline_access"
+                },
+                new Scope
+                {
+                    Name = "openid",
+                    Type = ScopeType.Identity
                 }
             };
         }
