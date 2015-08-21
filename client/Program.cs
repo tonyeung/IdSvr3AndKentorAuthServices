@@ -21,15 +21,18 @@ namespace client
 
         static void Authenticate()
         {
-            //var client = new HttpClient();
-            var url = "https://100.105.80.38:13855/connect/authorize?client_id=hybridclient&redirect_uri=https://100.105.80.38:13855/api/ExternalLoginCallback/&response_type=code id_token token&scope=openid profile read write offline_access&state=14395882522910.8145003772806376&nonce=1646515461546";
-            Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"https://100.105.80.38:13855/connect/authorize?client_id=hybridclient&redirect_uri=https://100.105.80.38:13855/api/ExternalLoginCallback/&response_type=code id_token token&scope=openid profile read write offline_access&state=14395882522910.8145003772806376&nonce=1646515461546\"");
+
+            var authorizeClient = new IdentityModel.Client.AuthorizeRequest("https://100.105.80.38:13855/connect/authorize");
+            var url = authorizeClient.CreateAuthorizeUrl("silicon", "code id_token token", "openid offline_access", "http://localhost:10084/test", "asdfadfasf", "asdfasdfsafd");
+            Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"" + url + "\"");
             //Console.WriteLine(client.GetStringAsync(url).Result);
         }
 
 
         static TokenResponse GetClientToken()
         {
+
+
             var client = new TokenClient(
                 "https://100.105.80.38:13855/connect/token",
                 "silicon",

@@ -20,11 +20,15 @@ namespace Auth
                     ClientId = "silicon",
                     Enabled = true,
                     AccessTokenType = AccessTokenType.Reference,
-                    AllowedScopes = new List<string> {"api1"},
-                    Flow = Flows.ClientCredentials,
+                    AllowAccessToAllScopes = true,
+                    Flow = Flows.Hybrid,
                     ClientSecrets = new List<Secret>
                     {
                         new Secret("F621F470-9731-4A25-80EF-67A6F7C5F4B8".Sha256())
+                    },
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:10084/test"
                     }
                 },
 
