@@ -23,7 +23,15 @@ namespace client
         {
 
             var authorizeClient = new IdentityModel.Client.AuthorizeRequest("https://100.105.80.38:13855/connect/authorize");
-            var url = authorizeClient.CreateAuthorizeUrl("silicon", "code id_token token", "openid offline_access", "http://localhost:10084/test", "asdfadfasf", "asdfasdfsafd");
+            var url = authorizeClient.CreateAuthorizeUrl(
+                clientId: "silicon",
+                responseType: "code id_token token",
+                scope: "openid offline_access",
+                redirectUri: "http://localhost:10084/test",
+                state: "adfasfadfa",
+                nonce: "asdfasdfasdfasdfaf");
+
+
             Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"" + url + "\"");
             //Console.WriteLine(client.GetStringAsync(url).Result);
         }
