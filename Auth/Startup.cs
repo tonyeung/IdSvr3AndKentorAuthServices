@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Metadata;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Auth
@@ -26,11 +27,11 @@ namespace Auth
 
                 SignInAsAuthenticationType = "External",
                 AuthenticationType = "saml2p",
-                Caption = "SAML2p",
+                Caption = "SAML2p"                
             };
             authServicesOptions.IdentityProviders.Add(new IdentityProvider(new EntityId("http://stubidp.kentor.se/Metadata"), authServicesOptions.SPOptions)
             {
-                LoadMetadata = true,
+                LoadMetadata = true
             });
 
 
