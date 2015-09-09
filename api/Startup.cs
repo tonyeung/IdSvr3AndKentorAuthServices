@@ -17,9 +17,7 @@ namespace api
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
                 {
                     Authority = "https://100.105.80.38:13855",
-                    ValidationMode = ValidationMode.ValidationEndpoint,
-
-                    RequiredScopes = new[] { "api1" }
+                    ValidationMode = ValidationMode.ValidationEndpoint
                 });
 
             // configure web api

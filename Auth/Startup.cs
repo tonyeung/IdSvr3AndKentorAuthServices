@@ -18,23 +18,6 @@ namespace Auth
     {
         public void Configuration(IAppBuilder app)
         {
-            var authServicesOptions = new KentorAuthServicesAuthenticationOptions(false)
-            {
-                SPOptions = new SPOptions
-                {
-                    EntityId = new EntityId("http://sp.example.com")
-                },
-
-                SignInAsAuthenticationType = "External",
-                AuthenticationType = "saml2p",
-                Caption = "SAML2p"                
-            };
-            authServicesOptions.IdentityProviders.Add(new IdentityProvider(new EntityId("http://stubidp.kentor.se/Metadata"), authServicesOptions.SPOptions)
-            {
-                LoadMetadata = true
-            });
-
-
             var cors = new InMemoryCorsPolicyService(Clients.Get());
             var factory = new IdentityServerServiceFactory()
                             .UseInMemoryClients(Clients.Get())
@@ -51,7 +34,8 @@ namespace Auth
                     IdentityProviders = (appBuilder, signInAsType) =>
                     {
                         Kentor.AuthServices.Configuration.Options.GlobalEnableSha256XmlSignatures();
-                        app.UseKentorAuthServicesAuthentication(authServicesOptions);
+                        //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+                        app.UseKentorAuthServicesAuthentication(new KentorAuthServicesAuthenticationOptions(true));
                     }
                 },
                 LoggingOptions = new LoggingOptions()
