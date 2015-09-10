@@ -16,7 +16,9 @@ namespace Auth
                     StandardScopes.OpenId,
                     StandardScopes.Profile,
                     StandardScopes.Email,
-                    StandardScopes.OfflineAccess
+                    StandardScopes.OfflineAccess,
+                    StandardScopes.AllClaims,
+                    new Scope() { Name = "foo" }
                 };
         }
     }

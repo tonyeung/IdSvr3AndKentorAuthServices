@@ -13,10 +13,11 @@ namespace api
 
         public void Configuration(IAppBuilder app)
         {
+            // 10084
             // accept access tokens from identityserver and require a scope of 'api1'
             app.UseIdentityServerBearerTokenAuthentication(new IdentityServerBearerTokenAuthenticationOptions
                 {
-                    Authority = "https://100.105.80.38:13855",
+                    Authority = "http://localhost:13855",
                     ValidationMode = ValidationMode.ValidationEndpoint
                 });
 

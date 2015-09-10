@@ -5,28 +5,72 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", "{6DA9C977-C64A-456A-B867-0E7F80C9917E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "client\client.csproj", "{F3F92545-84C5-42E6-8ACA-B459F3075E88}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{723605A6-36F2-416E-B894-447957357365}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{04D4EEDA-3EF7-47D2-ABE4-49ABB66F1C93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console", "console\console.csproj", "{F3F92545-84C5-42E6-8ACA-B459F3075E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "api\api.csproj", "{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webclient", "webclient\webclient.csproj", "{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\IdentityServer3\source\Core\Core.csproj", "{FB9E026E-BAB3-498A-A954-B93B05C146A5}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "IdentityModel.Shared", "C:\Users\rduong\Desktop\IdentityModel-9c184ae3599e64ae9fd5862cb2fdcf35d4825561\source\IdentityModel.Shared\IdentityModel.Shared.shproj", "{54B74C53-5F20-44B0-AA4A-4D3CE3BE8C91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityModel.Net45", "C:\Users\rduong\Desktop\IdentityModel-9c184ae3599e64ae9fd5862cb2fdcf35d4825561\source\IdentityModel.Net45\IdentityModel.Net45.csproj", "{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		C:\Users\rduong\Desktop\IdentityModel-9c184ae3599e64ae9fd5862cb2fdcf35d4825561\source\IdentityModel.Shared\IdentityModel.Shared.projitems*{1e8c7b7f-a91a-4e13-adc1-f2baa041a5b9}*SharedItemsImports = 4
+		C:\Users\rduong\Desktop\IdentityModel-9c184ae3599e64ae9fd5862cb2fdcf35d4825561\source\IdentityModel.Shared\IdentityModel.Shared.projitems*{54b74c53-5f20-44b0-aa4a-4d3ce3be8c91}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AzureWebSites|Any CPU = AzureWebSites|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
 		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DA9C977-C64A-456A-B867-0E7F80C9917E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
 		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3F92545-84C5-42E6-8ACA-B459F3075E88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04D4EEDA-3EF7-47D2-ABE4-49ABB66F1C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04D4EEDA-3EF7-47D2-ABE4-49ABB66F1C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04D4EEDA-3EF7-47D2-ABE4-49ABB66F1C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04D4EEDA-3EF7-47D2-ABE4-49ABB66F1C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A649B4E-3A18-4FCD-9ED0-5553686EBCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85AC9E87-CEAC-4A96-B1A1-A91F3E2D3679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.AzureWebSites|Any CPU.ActiveCfg = AzureWebSites|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.AzureWebSites|Any CPU.Build.0 = AzureWebSites|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9E026E-BAB3-498A-A954-B93B05C146A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.AzureWebSites|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.AzureWebSites|Any CPU.Build.0 = Release|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8C7B7F-A91A-4E13-ADC1-F2BAA041A5B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

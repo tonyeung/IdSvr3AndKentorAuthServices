@@ -15,25 +15,58 @@ namespace Auth
             {
                 new Client
                 {
-                    ClientName = "Hybrid Client Demo",
-                    Enabled = true,
-                    ClientId = "hybridclient",
-                    Flow = Flows.Hybrid,
-
-                    RequireConsent = false,
+                    ClientName = "Authorization Code Grant",
+                    ClientId = "authCode",
                     AccessTokenType = AccessTokenType.Reference,
-                    
                     AllowAccessToAllScopes = true,
-                    AllowedCorsOrigins = new List<string>{"http://stubidp.kentor.se"},
-                    
+                    Flow = Flows.AuthorizationCode,
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret("F621F470-9731-4A25-80EF-67A6F7C5F4B8".Sha256())
+                    },
                     RedirectUris = new List<string>
                     {
-                        "https://100.105.80.38:13855/api/ExternalLoginCallback/",
-                    },
-
-                    PostLogoutRedirectUris = new List<string>
+                        "http://localhost:6463/token/callback"
+                    }
+                },
+                new Client
+                {
+                    ClientName = "Client Credentials Grant",
+                    ClientId = "clientCreds",
+                    AccessTokenType = AccessTokenType.Reference,
+                    AllowAccessToAllScopes = true,
+                    Flow = Flows.ClientCredentials,
+                    ClientSecrets = new List<Secret>
                     {
-                        "https://100.105.80.38:13855/hearbeat/"
+                        new Secret("F621F470-9731-4A25-80EF-67A6F7C5F4B8".Sha256())
+                    }
+                },
+                new Client
+                {
+                    ClientName = "password grant",
+                    ClientId = "password",
+                    AccessTokenType = AccessTokenType.Reference,
+                    AllowAccessToAllScopes = true,
+                    Flow = Flows.ResourceOwner,
+                    ClientSecrets = new List<Secret>
+                    {
+                        new Secret("F621F470-9731-4A25-80EF-67A6F7C5F4B8".Sha256())
+                    }
+                },
+                new Client
+                {
+                    ClientName = "Katana Hybrid Client Demo",
+                    ClientId = "hybridWeb",
+                    AccessTokenType = AccessTokenType.Reference, 
+                    AllowAccessToAllScopes = true,
+                    Flow = Flows.Hybrid,
+                    ClientSecrets = new List<Secret>
+                    { 
+                        new Secret("F621F470-9731-4A25-80EF-67A6F7C5F4B8".Sha256())
+                    },           
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:6463/token/callback",
                     }
                 }
 
