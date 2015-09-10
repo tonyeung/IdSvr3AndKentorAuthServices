@@ -31,19 +31,18 @@ namespace Auth
 
             var spOptions = new SPOptions
             {
-                EntityId = new EntityId("http://localhost:13856/AuthServices"),
-                ReturnUrl = new Uri("http://localhost:6463/token/callback")
+                EntityId = new EntityId("http://localhost:13856/AuthServices")
             };
 
+
+            var uriPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
+            var path = new Uri(uriPath).LocalPath;
             var authOptions = new KentorAuthServicesAuthenticationOptions(false)
             {
                 SPOptions = spOptions,
                 AuthenticationType = "saml2p",
                 Caption = "SAML2p",
             };
-
-            var uriPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase);
-            var path = new Uri(uriPath).LocalPath;
             authOptions.IdentityProviders.Add(
                 new IdentityProvider(
                     new EntityId("http://stubidp.kentor.se/Metadata"), spOptions)
@@ -51,7 +50,7 @@ namespace Auth
                     AllowUnsolicitedAuthnResponse = true,
                     Binding = Saml2BindingType.HttpRedirect,
                     SingleSignOnServiceUrl = new Uri("http://stubidp.kentor.se"),
-                    SigningKey = new X509Certificate2(path + "/TokenSigningStaging.cer").PublicKey.Key
+                    SigningKey = new X509Certificate2(path + "/Kentor.AuthServices.StubIdp.cer").PublicKey.Key
                 });
 
             var options = new IdentityServerOptions
@@ -63,10 +62,10 @@ namespace Auth
                     IdentityProviders = (appBuilder, signInAsType) =>
                     {
                         Kentor.AuthServices.Configuration.Options.GlobalEnableSha256XmlSignatures();
-                        //app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
                         authOptions.SignInAsAuthenticationType = signInAsType;
                         app.UseKentorAuthServicesAuthentication(authOptions);
-                    }
+                    },
+                    EnableLocalLogin = false
                 },
                 LoggingOptions = new LoggingOptions()
                 {
@@ -75,14 +74,6 @@ namespace Auth
                     EnableWebApiDiagnostics = true
                 }
             };
-
-            //var options = new IdentityServerOptions
-            //{
-            //    Factory = new IdentityServerServiceFactory()
-            //                .UseInMemoryClients(Clients.Get())
-            //                .UseInMemoryScopes(Scopes.Get())
-            //                .UseInMemoryUsers(new List<InMemoryUser>())
-            //};
             app.UseIdentityServer(options);
         }
     }

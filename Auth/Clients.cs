@@ -67,6 +67,7 @@ namespace Auth
                     RedirectUris = new List<string>
                     {
                         "http://localhost:6463/token/callback",
+                        "http://localhost:8888/login"
                     }
                 }
 

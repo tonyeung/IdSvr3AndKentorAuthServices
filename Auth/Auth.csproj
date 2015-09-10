@@ -34,14 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kentor.AuthServices, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kentor.AuthServices.0.13.0\lib\net45\Kentor.AuthServices.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Kentor.AuthServices.Owin, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kentor.AuthServices.Owin.0.13.0\lib\net45\Kentor.AuthServices.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -92,6 +84,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\authservices\Kentor.AuthServices.Owin\Kentor.AuthServices.Owin.csproj">
+      <Project>{fa1e7723-124c-4d2d-a731-e16400b0073b}</Project>
+      <Name>Kentor.AuthServices.Owin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\authservices\Kentor.AuthServices\Kentor.AuthServices.csproj">
+      <Project>{93ba675e-a159-4701-b68b-c4b81015c556}</Project>
+      <Name>Kentor.AuthServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\IdentityServer3\source\Core\Core.csproj">
       <Project>{fb9e026e-bab3-498a-a954-b93b05c146a5}</Project>
       <Name>Core</Name>

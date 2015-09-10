@@ -30,13 +30,15 @@ namespace console
             nameValuePair["client_id"] = "hybridWeb";
             nameValuePair["scope"] = "offline_access openid";
             nameValuePair["response_type"] = "code token";
-            nameValuePair["redirect_uri"] = "http://localhost:6463/token/callback";
+            //nameValuePair["redirect_uri"] = "http://localhost:6463/token/callback";
+            nameValuePair["redirect_uri"] = "http://localhost:8888/login";
             nameValuePair["state"] = Guid.NewGuid().ToString("n");
             nameValuePair["nonce"] = Guid.NewGuid().ToString("n");
 
             var url = "http://localhost:13856/connect/authorize?" + nameValuePair.ToString();
 
             Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"" + url + "\"");
+            //Process.Start(@"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", "-incognito --app=\"" + url + "\"");
         }
 
         static void AuthorizationCode()
@@ -53,7 +55,6 @@ namespace console
             );
 
             Process.Start(@"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", "-private-window \"" + url + "\"");
-            //Console.WriteLine(client.GetStringAsync(url).Result);
         }
 
         static void ResourceOwnerPassword()
